@@ -1,0 +1,45 @@
+﻿@model List<MediWeb.Models.patient>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List Of Patients:</h2>
+<hr />
+<table id="PatientList">
+    <tr>
+        <th>Patient ID</th>
+        <th>Patient's Name</th>
+        <th>Address</th>
+        <th>Date Of Birth</th>
+        <th>Phone no.</th>
+        <th>Blood Group</th>
+        <th>Gender</th>
+        <th>Marrital Status</th>
+        <th>Father's Name</th>
+        <th>Occupation</th>
+        <th>Height</th>
+        <th>Weight</th>
+    </tr>
+
+    @foreach (MediWeb.Models.patient p in Model)
+{
+        <tr>
+            <td>@p.PID</td>
+            <td>@p.name</td>
+            <td>@p.address</td>
+            <td>@p.DOB</td>
+            <td>@p.phone</td>
+            <td>@p.bloodGroup</td>
+            <td>@p.gender</td>
+            <td>@p.marritalStatus</td>
+            <td>@p.fatherName</td>
+            <td>@p.occupation</td>
+            <td>@p.height</td>
+            <td>@p.weight kg</td>
+        </tr>
+   
+    
+}
+
+</table>

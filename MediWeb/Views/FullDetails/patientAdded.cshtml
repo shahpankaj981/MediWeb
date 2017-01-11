@@ -1,0 +1,25 @@
+﻿@model MediWeb.ViewModel.FullDetails
+
+@{
+    ViewBag.Title = "patientAdded";
+}
+<style>
+    img {
+        float:right;
+        margin-right:300px;
+        margin-top:-50px;
+        height:200px;
+        width :180px;
+}
+</style>
+
+
+<h2>New Patient has been added!!!</h2>
+<img src="/Uploads/@Model.patient.photo" />
+<h3>Patient Id: @Model.patient.PID</h3>
+<h3>Patient Name: @Model.patient.name</h3>
+<br /><br /><br />
+
+<h2>NOTE: Please do remember your ID  for future</h2>
+
+

@@ -1,0 +1,216 @@
+﻿@model MediWeb.ViewModel.FullDetails
+
+@{
+    ViewBag.Title = "addNew";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>Enter Details Of Patients</h3>
+        <hr />
+        @Html.ValidationSummary(true)
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.PID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.PID)
+                @Html.ValidationMessageFor(model =>  model.patient.PID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.name)
+                @Html.ValidationMessageFor(model =>  model.patient.name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.DOB, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.DOB)
+                @Html.ValidationMessageFor(model =>  model.patient.DOB)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.gender, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.gender)
+                @Html.ValidationMessageFor(model =>  model.patient.gender)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.address)
+                @Html.ValidationMessageFor(model =>  model.patient.address)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.phone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.phone)
+                @Html.ValidationMessageFor(model =>  model.patient.phone)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.marritalStatus, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.marritalStatus)
+                @Html.ValidationMessageFor(model =>  model.patient.marritalStatus)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.bloodGroup, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.bloodGroup)
+                @Html.ValidationMessageFor(model =>  model.patient.bloodGroup)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.fatherName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.fatherName)
+                @Html.ValidationMessageFor(model =>  model.patient.fatherName)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.occupation, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.occupation)
+                @Html.ValidationMessageFor(model =>  model.patient.occupation)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.height, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.height)
+                @Html.ValidationMessageFor(model =>  model.patient.height)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.patient.weight, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.weight)
+                @Html.ValidationMessageFor(model =>  model.patient.weight)
+            </div>
+        </div>
+        <hr />
+
+        <h3> Enter the Allergies you have:</h3>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allergies.AID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.allergies.AID)
+                @Html.ValidationMessageFor(model =>  model.allergies.AID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.allergies.allergyType, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.allergies.allergyType)
+                @Html.ValidationMessageFor(model =>  model.allergies.allergyType)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.dateOfAllergy, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dateOfAllergy)
+                @Html.ValidationMessageFor(model =>  model.dateOfAllergy)
+            </div>
+        </div>
+        <hr />
+        <h3>Enter your Current Prescription: </h3><hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.medicine.MID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.medicine.MID)
+                @Html.ValidationMessageFor(model =>  model.medicine.MID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.medicine.name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.medicine.name)
+                @Html.ValidationMessageFor(model =>  model.medicine.name)
+            </div>
+        </div>
+        <h4>Prescibed by:</h4>
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.DID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.DID)
+                @Html.ValidationMessageFor(model =>  model.doctor.DID)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.doctor.doctorName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.doctor.doctorName)
+                @Html.ValidationMessageFor(model =>  model.doctor.doctorName)
+            </div>
+        </div>
+        <hr />
+
+        <h3>Enter the medical tests you have taken:</h3>
+        <hr />
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.test.TID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.test.TID)
+                @Html.ValidationMessageFor(model =>  model.test.TID)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.test.testName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.test.testName)
+                @Html.ValidationMessageFor(model =>  model.test.testName)
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.dateOfTest, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.dateOfTest)
+                @Html.ValidationMessageFor(model =>  model.dateOfTest)
+            </div>
+        </div>
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

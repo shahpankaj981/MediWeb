@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "viewSearch";
+}
+<br />
+<br />
+<h4>Enter patient ID below to view patient details</h4>
+<hr />
+@using (Html.BeginForm())
+{
+    <input type="text" name="ptntSearch" />
+    //<input type="button" name="ptntSearchButton" class="button1" value="Search" />
+    <button class="btn btn-default">Search</button>
+}
+

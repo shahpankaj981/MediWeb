@@ -1,0 +1,280 @@
+﻿@model MediWeb.ViewModel.FullDetails
+
+@{
+    ViewBag.Title = "addNew";
+}
+
+<h2>Edit</h2>
+<style>    th, td {
+        border: 2px solid black;
+    }
+    table {
+        width: 100%;
+    }
+    input.tableInput {
+        width: 100%;
+    }
+    
+   
+    span.addRow {
+        position:absolute;
+        float:right;
+        padding:4px;
+        margin:4px;
+        border-radius: 3px;
+        border:1px solid #ccc;
+    }
+        span.addRow:hover {
+            background-color:#eee;
+            cursor:pointer;
+        }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>Edit the fields you want:</h3>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.PID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.PID)
+                @Html.ValidationMessageFor(model => model.patient.PID)
+                 
+            </div>
+           
+        </div>
+
+        <div class="form-group">
+            <h4><b>Patient ID: @Model.patient.PID</b></h4>
+           @* @Html.LabelFor(model => model.patient.PID, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.PID)
+                @Html.ValidationMessageFor(model => model.patient.PID)
+            </div>*@
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.name)
+                @Html.ValidationMessageFor(model => model.patient.name)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.DOB, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.DOB)
+                @Html.ValidationMessageFor(model => model.patient.DOB)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.gender, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.gender)
+                @Html.ValidationMessageFor(model => model.patient.gender)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.address)
+                @Html.ValidationMessageFor(model => model.patient.address)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.phone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.phone)
+                @Html.ValidationMessageFor(model => model.patient.phone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.marritalStatus, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.marritalStatus)
+                @Html.ValidationMessageFor(model => model.patient.marritalStatus)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.bloodGroup, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.bloodGroup)
+                @Html.ValidationMessageFor(model => model.patient.bloodGroup)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.fatherName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.fatherName)
+                @Html.ValidationMessageFor(model => model.patient.fatherName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.occupation, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.occupation)
+                @Html.ValidationMessageFor(model => model.patient.occupation)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.height, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.height)
+                @Html.ValidationMessageFor(model => model.patient.height)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.patient.weight, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.patient.weight)
+                @Html.ValidationMessageFor(model => model.patient.weight)
+            </div>
+        </div>
+        <br />
+        <br />
+        <hr />
+
+
+            <div class="form-group">
+            <h3>Enter the additional Allergies you have:</h3>
+            <hr />
+            <div class="col-md-10">
+                <table id="allergy">
+                    <tr>
+                        @*<th>Allergy ID</th>*@
+                        <th>Allergy Type</th>
+                        <th>Date Of Allergy</th>
+                    </tr>
+                    <tr>
+                        @*<td><input type="text" name="allergyID" class="tableInput" /></td>*@
+                        <td>@Html.DropDownList("allergies", "Select allergy type")</td>
+                        <td><input type="text" name="allergyDate" class="tableInput" /></td>
+                    </tr>
+                </table>
+                <span id="addAllergy" class="addRow">Add Row</span>
+             </div>
+        </div>
+        <br />
+        <br />
+        <hr />
+
+        
+         <div class="form-group">
+            <h3>Enter the additional problems you have: </h3>
+            <div class="col-md-10">
+                <table id="problem">
+                    <tr>
+                        <th>Problem</th>
+                        <th>Problem Date</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="problem" class="tableInput"/></td>
+                        <td><input type="text" name="problemDate" class="tableInput"/></td>
+                        </tr>
+                </table>
+                <span id="addProblem" class="addRow">Add Row</span>
+            </div>
+        </div>
+        <br />
+        <br />
+        <hr />
+        
+
+        
+
+        <div class="form-group">
+            <h3>Enter your additional Current Prescription: </h3>
+            <div class="col-md-10">
+                <table id="medicine">
+                    <tr>
+                        <th>Medicine Name</th>
+                        <th>Prescription Date</th>
+                        <th>Prescribed By (Doctor)</th>
+                    </tr>
+                    <tr>
+                        <td>@Html.DropDownList("medicine", "Select medicine")</td>
+                        <td><input type="text" name="prescriptionDate" class="tableInput"/></td>
+                        <td>@Html.DropDownList("doctor", "Select Doctor")</td>
+                        </tr>
+                </table>
+                <span id="addMedicine" class="addRow">Add Row</span>
+            </div>
+        </div>
+        <br />
+        <br />
+        <hr />
+        
+
+        <div class="form-group">
+            <h3>Enter the additional medical tests you have taken:</h3>
+            <hr />
+            <div class="col-md-10">
+                <table id="test">
+                    <tr>
+                        <th>Test Name</th>
+                        <th>date Of Test</th>
+                        <th>Test Result/ Readings</th>
+                    </tr>
+                    <tr>
+                        <td>@Html.DropDownList("test", "Select test you took")</td>
+                        <td><input type="text" name="testDate" class="tableInput"/></td>
+                        <td><input type="text" name="testReadings" class="tableInput"/></td>
+                    </tr>
+                </table>
+                <span id="addTest" class="addRow">Add Row</span>
+            </div>
+        </div>
+
+       
+        <br />
+        <hr />
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <input type="submit" value="Add patient" id="addPatient" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $("#addAllergy").on('click', function () {
+        $("table#allergy").append("<tr><td>@Html.DropDownList("allergies", "Select allergy type")</td><input type='text' name='allergyDate' class='tableInput' /></td></tr>");
+    });
+
+    $("#addProblem").on('click', function () {
+        $("table#problem").append('<tr><td><input type="text" name="problem" class="tableInput"/></td><td><input type="text" name="problemDate" class="tableInput"/></td></tr>');
+
+    });
+
+    $("#addMedicine").on('click', function () {
+        $("table#medicine").append("<tr><td>@Html.DropDownList("medicine", "Select medicine")</td><td><input type='text' name='prescriptionDate' class='tableInput'/></td><td>@Html.DropDownList("doctor", "Select Doctor")</td></tr>");
+    });
+
+    $("#addTest").on('click', function () {
+        $("table#test").append("<tr><td>@Html.DropDownList("test", "Select test you took")</td><td><input type='text' name='testDate' class='tableInput'/></td><td><input type='text' name='testReadings' class='tableInput'/></td></tr>");
+    });
+</script>

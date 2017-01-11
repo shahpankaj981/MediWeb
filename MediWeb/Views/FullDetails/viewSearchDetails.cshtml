@@ -1,0 +1,223 @@
+﻿@model MediWeb.ViewModel.FullDetails
+
+@{
+    ViewBag.Title = "viewSearch";
+}
+
+<style>
+    h3 {
+    clear:both;
+    }
+    table {
+        width: 100%;
+        clear:both;
+    }
+    td {
+        border: 1px solid gray;
+    }
+    dl {
+        float:left;
+        width: 50%;
+    }
+    span#image {
+        float: right;
+        margin-right: 300px;
+        margin-top: -50px;
+    }
+    img {
+        height:200px;
+        width :180px;
+}
+</style>
+
+<h2>viewSearch</h2>
+
+<div>
+    <h3>Patient Details</h3>
+	<hr />
+    <h4>Basic Details:</h4><hr />
+    <br /><br /><br />
+    
+    <span id="image"><img src ="/Uploads/@Model.patient.photo" alt="Photo not available" /></span>
+    <dl class="dl-horizontal">
+         <dt>
+            @Html.DisplayNameFor(model => model.patient.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.PID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.DOB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.DOB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.marritalStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.marritalStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.bloodGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.bloodGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.fatherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.fatherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.occupation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.occupation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.height)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.height)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.patient.weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.patient.weight) kg
+        </dd>
+    </dl>
+
+    <br />
+    <hr />
+
+        <h3>Allergies:</h3>
+    
+    
+            <table class ="allergyTable">
+                <tr>
+                    <th>Allergy ID</th>
+                    <th>Allergy Type</th>
+                    <th>Date Of Allergy</th>
+                </tr>
+                @for (int i = 0; i < @Model.allergy.Count; i++ )
+                {
+                    <tr>
+                        <td> @Model.allergy[i].AID</td>
+                        <td> @Model.allergy[i].allergyType</td>
+                        <td>@Model.allergyDate[i]</td>
+                    </tr>
+                }
+            </table>
+           <hr />
+     <h3>Problems:</h3>
+    
+    
+            <table class ="problemTable">
+                <tr>
+                    <th>Problem</th>
+                    <th>Date Of Problem</th>
+                </tr>
+                @for (int i = 0; i < @Model.problem.Count; i++ )
+                {
+                    <tr>
+                        <td> @Model.problem[i]</td>
+                        <td>@Model.problemDate[i]</td>
+                    </tr>
+                }
+            </table>
+           <hr />
+
+    <h3>Current Prescriptions:</h3>
+    <table id="currentPrescriptionTable">
+        <tr>
+            <th>Medicine ID</th>
+            <th>Medicine Name</th>
+            <th>Prescribed by</th>
+            <th>Date of Prescription</th>
+        </tr>
+
+        @for (int i = 0; i < @Model.medicine.Count; i++ )
+        {
+            <tr>
+                <td>@Model.medicine[i].MID</td>
+                <td>@Model.medicine[i].medicineName</td>
+                <td>@Model.prescribedBy[i].doctorName</td>
+                <td>@Model.prescriptionDate[i]</td>
+            </tr>
+        }
+    </table>
+  <hr />
+    <h3>Tests taken:</h3>
+    <table id="testTable">
+        <tr>
+            <th>Test ID</th>
+            <th>Test Name</th>
+            <th>Result/Readings</th>
+            <th>Date</th>
+        </tr>
+        @for (int i =0; i< @Model.test.Count; i++)
+        {
+            <tr>
+                <td>@Model.test[i].TID</td>
+                <td>@Model.test[i].testName</td>
+                <td>@Model.testReadings[i]</td>
+                <td>@Model.testDate[i]</td>
+            </tr>
+        }
+    </table>
+    
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.patient.PID}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

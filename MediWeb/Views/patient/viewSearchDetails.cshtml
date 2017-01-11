@@ -1,0 +1,25 @@
+﻿@model MediWeb.Models.patient
+
+@{
+    ViewBag.Title = "viewSearch";
+}
+
+<h2>Patient Details:</h2>
+
+<h4>Patient ID: @Model.PID</h4>
+<h4>Patient's Name: @Model.name </h4>
+<h4>Address: @Model.address</h4>
+<h4>Date Of Birth:  @Model.DOB</h4>
+<h4>Phone no.:  @Model.phone</h4>
+<h4>Blood Group:    @Model.bloodGroup</h4>
+<h4>Gender: @Model.gender</h4>
+<h4>Marrital Status:    @Model.marritalStatus</h4>
+<h4>Father's Name:  @Model.fatherName</h4>
+<h4>Occupation: @Model.occupation</h4>
+<h4>Height: @Model.height</h4>
+<h4>Weight: @Model.weight kg</h4>
+
+<hr />
+@Html.ActionLink("Back to Home", "Index")
+
+

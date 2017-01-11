@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "deletePatient";
+}
+<br />
+<br />
+<h4>Enter patient ID below to delete patient details</h4>
+<hr />
+@using (Html.BeginForm())
+{
+    <input type="text" name="dltPatient" />
+    //<input type="button" name="dltPatient" class="button1" value="Search" />
+    <button class="btn btn-default" id="confirmDelete">Delete</button>
+}
+
+<script>
+    $("#confirmDelete").on("click", function () {
+        confirm("Are you sure you want to delete it");
+    });
+</script>
+
